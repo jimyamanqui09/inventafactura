@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="InventaFactura — Tu comprobante en segundos">
+
+  <!-- ================================================================ -->
+  <!-- Navbar -->
+  <!-- ================================================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md transition-all duration-300">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/logo_transparent.png" alt="InventaFactura" class="h-7 w-auto" />
+        <span class="font-heading text-base font-bold text-foreground">InventaFactura</span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#features" class="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Características</a>
+        <a href="#cta" class="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Empezar</a>
+      </div>
+      <button id="menu-toggle" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label="Abrir menú">
+        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile backdrop -->
+  <div id="menu-backdrop" class="fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-card border-l border-border translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col">
+    <div class="flex flex-col gap-2 p-6 pt-24">
+      <a href="#features" class="mobile-link rounded-xl px-5 py-3.5 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-background transition-colors">Características</a>
+      <a href="#cta" class="mobile-link rounded-xl px-5 py-3.5 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-background transition-colors">Empezar</a>
+      <a href="#cta" class="mobile-link mt-4 rounded-full bg-primary px-6 py-3.5 text-center text-sm font-semibold text-primary-foreground active:bg-primary/90 active:scale-95 transition-all">Empezar gratis</a>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- Hero -->
+  <!-- ================================================================ -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-hidden">
+    <!-- Dark background -->
+    <div class="absolute inset-0 bg-background" />
+
+    <!-- Dot grid -->
+    <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 36px 36px;" />
+
+    <!-- Floating orbs -->
+    <div class="animate-orb-1 absolute top-[15%] left-[10%] sm:left-[20%] w-56 sm:w-72 rounded-full bg-primary/8 blur-3xl aspect-square" />
+    <div class="animate-orb-2 absolute bottom-[25%] right-[5%] sm:right-[15%] w-64 sm:w-80 rounded-full bg-primary/6 blur-3xl aspect-square" />
+    <div class="animate-orb-3 absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 rounded-full bg-primary/5 blur-3xl aspect-square" />
+
+    <div class="relative z-10 flex flex-col items-center gap-8 sm:gap-10 px-5 text-center max-w-2xl mx-auto">
+
+      <!-- MacBook with float + glow -->
+      <div class="animate-float-mac relative w-full max-w-xs sm:max-w-sm md:max-w-lg">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full rounded-full bg-primary/12 blur-3xl aspect-square scale-150" />
+        <img src="/macboock.png" alt="InventaFactura en laptop" class="relative z-10 w-full drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]" />
+      </div>
+
+      <!-- Headline -->
+      <div class="flex flex-col gap-4">
+        <h1 class="animate-text-in-1 font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground">
+          Tu comprobante<br />
+          <span class="text-primary">en segundos</span>
+        </h1>
+        <p class="animate-text-in-2 text-base sm:text-lg text-muted-foreground max-w-md mx-auto">
+          Boletas, facturas, notas y guías sin complicaciones. Desde tu celular o computadora.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="animate-text-in-3 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+        <a href="#cta" class="btn-shimmer inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95 active:bg-primary/90 min-h-[48px] sm:min-h-0">
+          Pruébalo gratis
+        </a>
+        <a href="#features" class="inline-flex items-center justify-center rounded-full border border-border px-8 py-3.5 text-sm font-semibold text-muted-foreground transition-all duration-300 hover:border-foreground/20 hover:text-foreground active:scale-95 min-h-[48px] sm:min-h-0">
+          Ver más
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- Pasos -->
+  <!-- ================================================================ -->
+  <section class="bg-card py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
+        Cómo funciona
+      </h2>
+      <div class="mt-12 sm:mt-16 flex flex-col gap-6 sm:flex-row sm:gap-8">
+        {[
+          { step: '01', icon: 'file-text', title: 'Elige el comprobante', desc: 'Selecciona boleta, factura, nota o guía.' },
+          { step: '02', icon: 'pencil', title: 'Llena los datos', desc: 'Agrega cliente, productos y totales en segundos.' },
+          { step: '03', icon: 'send', title: 'Envía o imprime', desc: 'Comparte por WhatsApp, correo o imprime al instante.' },
+        ].map((item, i) => (
+          <div class="flex-1 flex items-start gap-4 rounded-2xl bg-background p-6 sm:flex-col sm:items-center sm:text-center sm:p-8">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+              {item.step}
+            </div>
+            <div class="sm:flex sm:flex-col sm:items-center">
+              <h3 class="font-heading text-base sm:text-lg font-semibold text-foreground">{item.title}</h3>
+              <p class="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- Features -->
+  <!-- ================================================================ -->
+  <section id="features" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
+        Todo lo que necesitas
+      </h2>
+      <p class="mt-3 text-center text-sm sm:text-base text-muted-foreground">
+        Gestión completa de comprobantes en un solo lugar.
+      </p>
+      <div class="mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+        {[
+          { icon: 'receipt-text', title: 'Boletas', desc: 'Crea boletas de venta con diseño limpio y profesional.' },
+          { icon: 'file-text', title: 'Facturas', desc: 'Electrónicas y físicas al instante.' },
+          { icon: 'file-plus', title: 'Notas', desc: 'Notas de crédito y débito ágiles.' },
+          { icon: 'truck', title: 'Guías', desc: 'Guías de remisión para tus envíos.' },
+          { icon: 'users', title: 'Clientes', desc: 'Registra con datos fiscales y de contacto.' },
+          { icon: 'package', title: 'Productos', desc: 'Catálogo con precios, códigos y stock.' },
+        ].map((f) => (
+          <div class="flex flex-col gap-2 rounded-2xl border border-border bg-card/60 p-4 sm:p-6 active:border-primary/30 active:bg-card transition-all duration-300">
+            <div class="flex size-9 sm:size-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <Icon name={`lucide:${f.icon}`} class="size-4 sm:size-5" />
+            </div>
+            <h3 class="font-heading text-sm sm:text-base font-semibold text-foreground">{f.title}</h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- Dispositivos -->
+  <!-- ================================================================ -->
+  <section class="border-t border-border bg-card py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
+        En todos tus dispositivos
+      </h2>
+      <p class="mt-3 text-center text-sm sm:text-base text-muted-foreground">
+        La misma experiencia fluida donde estés.
+      </p>
+
+      <div class="mt-12 sm:mt-16 flex flex-col items-center gap-10 sm:flex-row sm:justify-center sm:gap-12 lg:gap-20">
+        <!-- Laptop -->
+        <div class="w-full max-w-xs sm:max-w-none sm:w-80 lg:w-96">
+          <img src="/macboock.png" alt="Vista en laptop" class="w-full" />
+        </div>
+        <div class="flex items-center gap-6 sm:flex-col sm:gap-4">
+          <!-- iPad -->
+          <div class="w-28 sm:w-36 lg:w-44">
+            <img src="/ipad.png" alt="Vista en tablet" class="w-full" />
+          </div>
+          <!-- Phone -->
+          <div class="w-16 sm:w-20 lg:w-24">
+            <img src="/phone.png" alt="Vista en móvil" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- CTA -->
+  <!-- ================================================================ -->
+  <section id="cta" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-xl px-5 text-center">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+        Empieza ahora, es gratis
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-muted-foreground">
+        Sin tarjeta de crédito. Crea tu cuenta y emite tu primer comprobante hoy.
+      </p>
+      <a href="#" class="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-10 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95 active:bg-primary/90 min-h-[48px] sm:min-h-0">
+        Crear cuenta gratis
+      </a>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- Footer -->
+  <!-- ================================================================ -->
+  <footer class="border-t border-border py-8 sm:py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row">
+      <div class="flex items-center gap-2 text-sm text-muted-foreground">
+        <img src="/logo_transparent.png" alt="InventaFactura" class="h-5 w-auto" />
+        <span>InventaFactura &copy; {new Date().getFullYear()}</span>
+      </div>
+      <div class="flex gap-6 text-sm text-muted-foreground">
+        <a href="#" class="transition-colors hover:text-foreground">Términos</a>
+        <a href="#" class="transition-colors hover:text-foreground">Privacidad</a>
+        <a href="#" class="transition-colors hover:text-foreground">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<!-- ================================================================ -->
+<!-- Scripts -->
+<!-- ================================================================ -->
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuBackdrop = document.getElementById('menu-backdrop');
+  const desktopLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+
+  let lastScrollY = 0;
+  let menuOpen = false;
+
+  function openMenu() {
+    menuOpen = true;
+    menuToggle.classList.add('open');
+    mobileMenu.classList.add('open');
+    mobileMenu.classList.remove('translate-x-full');
+    mobileMenu.classList.add('translate-x-0');
+    menuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+    menuBackdrop.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    menuToggle.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    mobileMenu.classList.add('translate-x-full');
+    mobileMenu.classList.remove('translate-x-0');
+    menuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+    menuBackdrop.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOpen) closeMenu();
+  });
+
+  // Navbar scroll behavior
+  let ticking = false;
+  function updateScroll() {
+    const top = window.scrollY;
+    if (top > 20) {
+      navbar.classList.add('bg-background/95', 'shadow-lg', 'shadow-black/10');
+      navbar.classList.remove('bg-background/80');
+    } else {
+      navbar.classList.remove('bg-background/95', 'shadow-lg', 'shadow-black/10');
+      navbar.classList.add('bg-background/80');
+    }
+    if (!menuOpen && top > lastScrollY && top > 100) {
+      navbar.style.transform = 'translateY(-100%)';
+    } else {
+      navbar.style.transform = 'translateY(0)';
+    }
+    lastScrollY = top;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; }
+  }, { passive: true });
+  updateScroll();
+
+  // Active section observer
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        desktopLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+          else link.classList.remove('active');
+        });
+        mobileLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('text-foreground');
+            link.classList.remove('text-muted-foreground');
+          } else {
+            link.classList.remove('text-foreground');
+            link.classList.add('text-muted-foreground');
+          }
+        });
+        break;
+      }
+    }
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  sections.forEach(section => observer.observe(section));
+</script>

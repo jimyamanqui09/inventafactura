@@ -1,308 +1,393 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Icon } from 'astro-icon/components';
+import '../styles/v4.css';
 ---
 
-<Layout title="InventaFactura — Tu comprobante en segundos">
-
-  <!-- ================================================================ -->
-  <!-- Navbar -->
-  <!-- ================================================================ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md transition-all duration-300">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-      <a href="/" class="flex items-center gap-2">
-        <img src="/logo_transparent.png" alt="InventaFactura" class="h-7 w-auto" />
-        <span class="font-heading text-base font-bold text-foreground">InventaFactura</span>
-      </a>
-      <div class="hidden items-center gap-8 md:flex">
-        <a href="#features" class="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Características</a>
-        <a href="#cta" class="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Empezar</a>
-      </div>
-      <button id="menu-toggle" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label="Abrir menú">
-        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
-        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
-        <span class="block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300"></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile backdrop -->
-  <div id="menu-backdrop" class="fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
-
-  <!-- Mobile drawer -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-card border-l border-border translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col">
-    <div class="flex flex-col gap-2 p-6 pt-24">
-      <a href="#features" class="mobile-link rounded-xl px-5 py-3.5 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-background transition-colors">Características</a>
-      <a href="#cta" class="mobile-link rounded-xl px-5 py-3.5 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-background transition-colors">Empezar</a>
-      <a href="#cta" class="mobile-link mt-4 rounded-full bg-primary px-6 py-3.5 text-center text-sm font-semibold text-primary-foreground active:bg-primary/90 active:scale-95 transition-all">Empezar gratis</a>
-    </div>
+<Layout title="InventaFactura — Facturación e inventario en móvil y PC">
+  <!-- Ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grid-overlay"></div>
   </div>
 
-  <!-- ================================================================ -->
-  <!-- Hero -->
-  <!-- ================================================================ -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-hidden">
-    <!-- Dark background -->
-    <div class="absolute inset-0 bg-background" />
-
-    <!-- Dot grid -->
-    <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 36px 36px;" />
-
-    <!-- Floating orbs -->
-    <div class="animate-orb-1 absolute top-[15%] left-[10%] sm:left-[20%] w-56 sm:w-72 rounded-full bg-primary/8 blur-3xl aspect-square" />
-    <div class="animate-orb-2 absolute bottom-[25%] right-[5%] sm:right-[15%] w-64 sm:w-80 rounded-full bg-primary/6 blur-3xl aspect-square" />
-    <div class="animate-orb-3 absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 rounded-full bg-primary/5 blur-3xl aspect-square" />
-
-    <div class="relative z-10 flex flex-col items-center gap-8 sm:gap-10 px-5 text-center max-w-2xl mx-auto">
-
-      <!-- MacBook with float + glow -->
-      <div class="animate-float-mac relative w-full max-w-xs sm:max-w-sm md:max-w-lg">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full rounded-full bg-primary/12 blur-3xl aspect-square scale-150" />
-        <img src="/macboock.png" alt="InventaFactura en laptop" class="relative z-10 w-full drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]" />
-      </div>
-
-      <!-- Headline -->
-      <div class="flex flex-col gap-4">
-        <h1 class="animate-text-in-1 font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground">
-          Tu comprobante<br />
-          <span class="text-primary">en segundos</span>
-        </h1>
-        <p class="animate-text-in-2 text-base sm:text-lg text-muted-foreground max-w-md mx-auto">
-          Boletas, facturas, notas y guías sin complicaciones. Desde tu celular o computadora.
-        </p>
-      </div>
-
-      <!-- CTA -->
-      <div class="animate-text-in-3 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-        <a href="#cta" class="btn-shimmer inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95 active:bg-primary/90 min-h-[48px] sm:min-h-0">
-          Pruébalo gratis
-        </a>
-        <a href="#features" class="inline-flex items-center justify-center rounded-full border border-border px-8 py-3.5 text-sm font-semibold text-muted-foreground transition-all duration-300 hover:border-foreground/20 hover:text-foreground active:scale-95 min-h-[48px] sm:min-h-0">
-          Ver más
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================================================================ -->
-  <!-- Pasos -->
-  <!-- ================================================================ -->
-  <section class="bg-card py-20 sm:py-28">
-    <div class="mx-auto max-w-6xl px-5">
-      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
-        Cómo funciona
-      </h2>
-      <div class="mt-12 sm:mt-16 flex flex-col gap-6 sm:flex-row sm:gap-8">
-        {[
-          { step: '01', icon: 'file-text', title: 'Elige el comprobante', desc: 'Selecciona boleta, factura, nota o guía.' },
-          { step: '02', icon: 'pencil', title: 'Llena los datos', desc: 'Agrega cliente, productos y totales en segundos.' },
-          { step: '03', icon: 'send', title: 'Envía o imprime', desc: 'Comparte por WhatsApp, correo o imprime al instante.' },
-        ].map((item, i) => (
-          <div class="flex-1 flex items-start gap-4 rounded-2xl bg-background p-6 sm:flex-col sm:items-center sm:text-center sm:p-8">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
-              {item.step}
-            </div>
-            <div class="sm:flex sm:flex-col sm:items-center">
-              <h3 class="font-heading text-base sm:text-lg font-semibold text-foreground">{item.title}</h3>
-              <p class="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================ -->
-  <!-- Features -->
-  <!-- ================================================================ -->
-  <section id="features" class="py-20 sm:py-28">
-    <div class="mx-auto max-w-6xl px-5">
-      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
-        Todo lo que necesitas
-      </h2>
-      <p class="mt-3 text-center text-sm sm:text-base text-muted-foreground">
-        Gestión completa de comprobantes en un solo lugar.
-      </p>
-      <div class="mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-        {[
-          { icon: 'receipt-text', title: 'Boletas', desc: 'Crea boletas de venta con diseño limpio y profesional.' },
-          { icon: 'file-text', title: 'Facturas', desc: 'Electrónicas y físicas al instante.' },
-          { icon: 'file-plus', title: 'Notas', desc: 'Notas de crédito y débito ágiles.' },
-          { icon: 'truck', title: 'Guías', desc: 'Guías de remisión para tus envíos.' },
-          { icon: 'users', title: 'Clientes', desc: 'Registra con datos fiscales y de contacto.' },
-          { icon: 'package', title: 'Productos', desc: 'Catálogo con precios, códigos y stock.' },
-        ].map((f) => (
-          <div class="flex flex-col gap-2 rounded-2xl border border-border bg-card/60 p-4 sm:p-6 active:border-primary/30 active:bg-card transition-all duration-300">
-            <div class="flex size-9 sm:size-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
-              <Icon name={`lucide:${f.icon}`} class="size-4 sm:size-5" />
-            </div>
-            <h3 class="font-heading text-sm sm:text-base font-semibold text-foreground">{f.title}</h3>
-            <p class="text-xs sm:text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================ -->
-  <!-- Dispositivos -->
-  <!-- ================================================================ -->
-  <section class="border-t border-border bg-card py-20 sm:py-28">
-    <div class="mx-auto max-w-6xl px-5">
-      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-foreground">
-        En todos tus dispositivos
-      </h2>
-      <p class="mt-3 text-center text-sm sm:text-base text-muted-foreground">
-        La misma experiencia fluida donde estés.
-      </p>
-
-      <div class="mt-12 sm:mt-16 flex flex-col items-center gap-10 sm:flex-row sm:justify-center sm:gap-12 lg:gap-20">
-        <!-- Laptop -->
-        <div class="w-full max-w-xs sm:max-w-none sm:w-80 lg:w-96">
-          <img src="/macboock.png" alt="Vista en laptop" class="w-full" />
-        </div>
-        <div class="flex items-center gap-6 sm:flex-col sm:gap-4">
-          <!-- iPad -->
-          <div class="w-28 sm:w-36 lg:w-44">
-            <img src="/ipad.png" alt="Vista en tablet" class="w-full" />
-          </div>
-          <!-- Phone -->
-          <div class="w-16 sm:w-20 lg:w-24">
-            <img src="/phone.png" alt="Vista en móvil" class="w-full" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================ -->
-  <!-- CTA -->
-  <!-- ================================================================ -->
-  <section id="cta" class="py-20 sm:py-28">
-    <div class="mx-auto max-w-xl px-5 text-center">
-      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-        Empieza ahora, es gratis
-      </h2>
-      <p class="mt-4 text-sm sm:text-base text-muted-foreground">
-        Sin tarjeta de crédito. Crea tu cuenta y emite tu primer comprobante hoy.
-      </p>
-      <a href="#" class="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-10 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95 active:bg-primary/90 min-h-[48px] sm:min-h-0">
-        Crear cuenta gratis
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio">
+        <img src="/logo_transparent.png" alt="InventaFactura" class="brand-logo" />
+        <span class="brand-name">InventaFactura</span>
       </a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#producto" data-i18n="nav.benefits">Beneficios</a>
+        <a href="#flujo" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#disponibilidad" data-i18n="nav.avail">Disponibilidad</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma"><span id="langLabel">EN</span></button>
+        <a class="btn btn-primary btn-sm" href="#disponibilidad" data-i18n="cta.demo">Ver disponibilidad</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ================================================================ -->
-  <!-- Footer -->
-  <!-- ================================================================ -->
-  <footer class="border-t border-border py-8 sm:py-10">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row">
-      <div class="flex items-center gap-2 text-sm text-muted-foreground">
-        <img src="/logo_transparent.png" alt="InventaFactura" class="h-5 w-auto" />
-        <span>InventaFactura &copy; {new Date().getFullYear()}</span>
+  <main id="inicio">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="v4.hero.badge">Facturación e inventario</span>
+          </span>
+          <h1 class="hero-title">
+            <span class="hero-line" data-i18n="v4.hero.title1">Factura, controla tu stock</span>
+            <span class="hero-line gradient-text" data-i18n="v4.hero.title2">y gestiona clientes.</span>
+          </h1>
+          <p class="hero-sub" data-i18n="v4.hero.sub">Una sola herramienta para emitir documentos, mantener tu inventario al día y facturar más rápido. En tu móvil y en tu PC.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="#disponibilidad" data-i18n="cta.pc">Probar en PC</a>
+            <a class="btn btn-ghost btn-lg" href="#disponibilidad" data-i18n="cta.mobile">Probar en Móvil</a>
+          </div>
+          <p class="hero-note" data-i18n="v4.hero.note">Disponible como app nativa en Android e iOS y en tu navegador.</p>
+        </div>
+
+        <!-- Browser mockup with mini real UI -->
+        <div class="browser-window" id="browserWindow" data-reveal>
+          <div class="browser-bar">
+            <span class="traffic"><i></i><i></i><i></i></span>
+            <span class="browser-url">inventafactura.com/panel</span>
+          </div>
+          <div class="app-ui">
+            <aside class="ui-sidebar">
+              <div class="ui-logo"><span class="ui-logo-mark">IF</span></div>
+              <nav class="ui-nav">
+                <span class="ui-nav-item is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Panel</span>
+                <span class="ui-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Documentos</span>
+                <span class="ui-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>Inventario</span>
+                <span class="ui-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>Clientes</span>
+              </nav>
+            </aside>
+            <div class="ui-main">
+              <div class="ui-topbar">
+                <span class="ui-title">Documentos recientes</span>
+                <span class="ui-chip">Factura</span>
+              </div>
+              <table class="ui-table">
+                <thead><tr><th>Documento</th><th>Cliente</th><th>Estado</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><span class="td-strong">F001-2451</span></td>
+                    <td>Comercial Andina</td>
+                    <td><span class="pill pill-ok">Emitido</span></td>
+                    <td class="td-strong">S/ 1,240.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="td-strong">B002-1098</span></td>
+                    <td>Bodega El Sol</td>
+                    <td><span class="pill pill-ok">Emitido</span></td>
+                    <td class="td-strong">S/ 320.50</td>
+                  </tr>
+                  <tr>
+                    <td><span class="td-strong">F001-2452</span></td>
+                    <td>Textil Norte S.A.C.</td>
+                    <td><span class="pill pill-warn">En proceso</span></td>
+                    <td class="td-strong">S/ 2,860.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="td-strong">G001-0033</span></td>
+                    <td>Distribuidora Lima</td>
+                    <td><span class="pill pill-ok">Emitido</span></td>
+                    <td class="td-strong">—</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="ui-stats">
+                <div class="ui-stat"><span class="ui-stat-num">+12%</span><span class="ui-stat-label">Ventas del mes</span></div>
+                <div class="ui-stat"><span class="ui-stat-num">48</span><span class="ui-stat-label">Docs. emitidos</span></div>
+                <div class="ui-stat"><span class="ui-stat-num">S/ 9,400</span><span class="ui-stat-label">Facturado</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex gap-6 text-sm text-muted-foreground">
-        <a href="#" class="transition-colors hover:text-foreground">Términos</a>
-        <a href="#" class="transition-colors hover:text-foreground">Privacidad</a>
-        <a href="#" class="transition-colors hover:text-foreground">Contacto</a>
+    </section>
+
+    <!-- ===== Trust strip ===== -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust-label" data-i18n="v4.trust.label">Construido para negocios como el tuyo</p>
+        <div class="trust-logos">
+          <span class="trust-logo">[tu negocio]</span>
+          <span class="trust-logo">[tu negocio]</span>
+          <span class="trust-logo">[tu negocio]</span>
+          <span class="trust-logo">[tu negocio]</span>
+        </div>
       </div>
+    </section>
+
+    <!-- ===== Bento features ===== -->
+    <section class="features" id="producto">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="v4.features.eyebrow">El sistema</span>
+          <h2 class="section-title" data-i18n="v4.features.title">Todo lo que tu negocio necesita, en un panel</h2>
+          <p class="section-sub" data-i18n="v4.features.sub">Seis documentos soportados, inventario sincronizado y tus clientes siempre a la mano.</p>
+        </div>
+
+        <div class="bento" data-reveal>
+          <article class="bento-card card-big">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+              <h3 data-i18n="v4.f1.title">Documentos en segundos</h3>
+              <p data-i18n="v4.f1.desc">Factura, Boleta, Nota de Crédito, Nota de Débito, Guía de Remisión y Guía Transportista: crea y guarda al instante.</p>
+            </div>
+            <div class="mini-stack" aria-hidden="true">
+              <div class="mini-doc d1"><span>F</span><i></i><i></i><i></i></div>
+              <div class="mini-doc d2"><span>B</span><i></i><i></i></div>
+              <div class="mini-doc d3"><span>NC</span><i></i><i></i><i></i></div>
+            </div>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span>
+              <h3 data-i18n="v4.f2.title">Inventario sincronizado</h3>
+              <p data-i18n="v4.f2.desc">Vendes y el stock se actualiza solo, en tiempo real.</p>
+            </div>
+            <div class="mini-meter" aria-hidden="true"><i class="m1"></i><i class="m2"></i><i class="m3"></i><i class="m4"></i></div>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></span>
+              <h3 data-i18n="v4.f3.title">Clientes a la mano</h3>
+              <p data-i18n="v4.f3.desc">Sus datos guardados, listos para el siguiente documento.</p>
+            </div>
+            <div class="mini-chips" aria-hidden="true"><i>Juan P.</i><i>María G.</i><i>Carlos R.</i></div>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+              <h3 data-i18n="v4.f4.title">Móvil y PC</h3>
+              <p data-i18n="v4.f4.desc">La misma cuenta en tu teléfono y tu computadora, sincronizada.</p>
+            </div>
+            <div class="mini-devices" aria-hidden="true">
+              <span class="mini-phone"></span>
+              <span class="mini-laptop"></span>
+            </div>
+          </article>
+
+          <article class="bento-card card-big">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+              <h3 data-i18n="v4.f5.title">Sin papeles ni plantillas</h3>
+              <p data-i18n="v4.f5.desc">Adiós a las plantillas sueltas y al balanceo de fin de mes: todo el flujo de documentos vive en un solo lugar.</p>
+            </div>
+            <div class="mini-table" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-copy">
+              <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></span>
+              <h3 data-i18n="v4.f6.title">Rápido de adoptar</h3>
+              <p data-i18n="v4.f6.desc">Sin configuraciones complicadas. Crea tu cuenta y emite tu primer documento hoy.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Flow ===== -->
+    <section class="flow" id="flujo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="v4.flow.eyebrow">Cómo funciona</span>
+          <h2 class="section-title" data-i18n="v4.flow.title">Un flujo simple, de principio a fin</h2>
+        </div>
+        <div class="flow-track" aria-hidden="true"><span class="flow-line"></span></div>
+        <div class="flow-steps" data-reveal>
+          <article class="flow-step" data-step="1">
+            <span class="step-num">01</span>
+            <h3 data-i18n="v4.flow.s1.title">Crea tu cuenta</h3>
+            <p data-i18n="v4.flow.s1.desc">Regístrate en segundos con tu correo.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <span class="step-num">02</span>
+            <h3 data-i18n="v4.flow.s2.title">Emite tu primer documento</h3>
+            <p data-i18n="v4.flow.s2.desc">Factura, boleta, nota o guía: listo en segundos.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <span class="step-num">03</span>
+            <h3 data-i18n="v4.flow.s3.title">El stock se actualiza solo</h3>
+            <p data-i18n="v4.flow.s3.desc">Tu inventario y clientes quedan al día sin tocar nada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Problem / Solution ===== -->
+    <section class="pas">
+      <div class="container pas-grid" data-reveal>
+        <article class="pas-block pas-problem">
+          <span class="eyebrow" data-i18n="v4.problem.eyebrow">El problema</span>
+          <h2 data-i18n="v4.problem.title">La facturación todavía te cuesta horas.</h2>
+          <p data-i18n="v4.problem.desc">Plantillas por aquí, stock que se desactualiza, datos de clientes que hay que tipear una y otra vez. Y a fin de mes, el balanceo empieza de nuevo.</p>
+        </article>
+        <article class="pas-block pas-solution">
+          <span class="eyebrow" data-i18n="v4.solution.eyebrow">La solución</span>
+          <h2 data-i18n="v4.solution.title">Con InventaFactura, cada documento nace en segundos.</h2>
+          <p data-i18n="v4.solution.desc">Tu inventario se actualiza solo y tus clientes están a un toque. Tú diriges el negocio; nosotros ponemos el orden.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Availability ===== -->
+    <section class="avail" id="disponibilidad">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="avail.eyebrow">Disponibilidad</span>
+          <h2 class="section-title" data-i18n="avail.title">En tu móvil y en tu PC</h2>
+          <p class="section-sub" data-i18n="avail.sub">El mismo sistema, donde lo necesites.</p>
+        </div>
+        <div class="avail-grid" data-reveal>
+          <article class="avail-card">
+            <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+            <h3 data-i18n="v4.avail.mobile.title">Móvil</h3>
+            <p data-i18n="v4.avail.mobile.desc">Apps nativas para Android e iOS desde las tiendas oficiales. Tu sistema en el bolsillo.</p>
+            <a class="btn btn-ghost" href="#disponibilidad" data-i18n="cta.mobile">Probar en Móvil</a>
+          </article>
+          <article class="avail-card">
+            <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+            <h3 data-i18n="v4.avail.pc.title">PC — Web</h3>
+            <p data-i18n="v4.avail.pc.desc">Abre tu navegador y listo. Sin instalaciones, sin configuraciones.</p>
+            <a class="btn btn-ghost" href="#disponibilidad" data-i18n="cta.pc">Probar en PC</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+      <div class="container faq-inner">
+        <h2 class="section-title" data-i18n="faq.title">Preguntas frecuentes</h2>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q1">¿Está disponible en PC y móvil?</span><span class="faq-chev"></span></summary>
+            <p data-i18n="faq.a1">Sí. Funciona como app nativa en Android e iOS y como web app en tu PC, sin instalar nada.</p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q2">¿Necesito instalar algo en mi PC?</span><span class="faq-chev"></span></summary>
+            <p data-i18n="faq.a2">No. En tu PC solo abre el navegador y usa el sistema directamente.</p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q3">¿Para quién es InventaFactura?</span><span class="faq-chev"></span></summary>
+            <p data-i18n="faq.a3">Ideal para pymes, tiendas y negocios que necesitan facturar y llevar su inventario de forma simple.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+    <section class="final">
+      <div class="container final-inner" data-reveal>
+        <h2 class="final-title" data-i18n="v4.final.title">Tu negocio, en orden.</h2>
+        <p class="final-sub" data-i18n="v4.final.sub">Facturación e inventario en una sola herramienta. Escríbenos y empieza hoy.</p>
+        <a class="btn btn-primary btn-lg" href="#disponibilidad" data-i18n="v4.final.cta">Probar ahora</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio">
+        <img src="/logo_transparent.png" alt="InventaFactura" class="brand-logo" />
+        <span class="brand-name">InventaFactura</span>
+      </a>
+      <p class="footer-tag" data-i18n="footer.tag">Sistema de facturación e inventario para móvil y PC.</p>
+      <div class="footer-links">
+        <a href="#producto" data-i18n="footer.docs">Documentos</a>
+        <a href="#disponibilidad" data-i18n="footer.avail">Disponibilidad</a>
+      </div>
+      <p class="footer-rights">© {new Date().getFullYear()} InventaFactura — <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
     </div>
   </footer>
-
 </Layout>
 
-<!-- ================================================================ -->
-<!-- Scripts -->
-<!-- ================================================================ -->
 <script>
-  const navbar = document.getElementById('navbar');
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuBackdrop = document.getElementById('menu-backdrop');
-  const desktopLinks = document.querySelectorAll('.nav-link[href^="#"]');
-  const mobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+  import { initI18n } from '../scripts/i18n';
 
-  let lastScrollY = 0;
-  let menuOpen = false;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function openMenu() {
-    menuOpen = true;
-    menuToggle.classList.add('open');
-    mobileMenu.classList.add('open');
-    mobileMenu.classList.remove('translate-x-full');
-    mobileMenu.classList.add('translate-x-0');
-    menuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-    menuBackdrop.classList.add('opacity-100');
-    document.body.style.overflow = 'hidden';
+  /* ---------- Header: scroll state ---------- */
+  const header = document.getElementById('header');
+  function onScrollHeader() {
+    if (window.scrollY > 8) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  }
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
+  onScrollHeader();
+
+  /* ---------- Mobile menu ---------- */
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.querySelector('.main-nav');
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        mainNav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
-  function closeMenu() {
-    menuOpen = false;
-    menuToggle.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    mobileMenu.classList.add('translate-x-full');
-    mobileMenu.classList.remove('translate-x-0');
-    menuBackdrop.classList.add('opacity-0', 'pointer-events-none');
-    menuBackdrop.classList.remove('opacity-100');
-    document.body.style.overflow = '';
-  }
-
-  menuToggle.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
-  menuBackdrop.addEventListener('click', closeMenu);
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menuOpen) closeMenu();
+  /* ---------- Sticky header reset on anchors ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (mainNav) mainNav.classList.remove('is-open');
+    });
   });
 
-  // Navbar scroll behavior
-  let ticking = false;
-  function updateScroll() {
-    const top = window.scrollY;
-    if (top > 20) {
-      navbar.classList.add('bg-background/95', 'shadow-lg', 'shadow-black/10');
-      navbar.classList.remove('bg-background/80');
-    } else {
-      navbar.classList.remove('bg-background/95', 'shadow-lg', 'shadow-black/10');
-      navbar.classList.add('bg-background/80');
-    }
-    if (!menuOpen && top > lastScrollY && top > 100) {
-      navbar.style.transform = 'translateY(-100%)';
-    } else {
-      navbar.style.transform = 'translateY(0)';
-    }
-    lastScrollY = top;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; }
-  }, { passive: true });
-  updateScroll();
-
-  // Active section observer
-  const sections = document.querySelectorAll('section[id]');
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        desktopLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
-          else link.classList.remove('active');
-        });
-        mobileLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('text-foreground');
-            link.classList.remove('text-muted-foreground');
-          } else {
-            link.classList.remove('text-foreground');
-            link.classList.add('text-muted-foreground');
+  /* ---------- Reveal on scroll ---------- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
           }
         });
-        break;
-      }
-    }
-  }, { rootMargin: '-50% 0px -50% 0px' });
-  sections.forEach(section => observer.observe(section));
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  /* ---------- Tilt en tarjetas bento (mouse) ---------- */
+  if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.bento-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+      });
+    });
+  }
+
+  /* ---------- Init i18n ---------- */
+  initI18n();
 </script>

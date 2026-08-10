@@ -25,6 +25,11 @@ const I18N: Record<string, Record<string, string>> = {
     'footer.docs': 'Documentos',
     'footer.avail': 'Disponibilidad',
     'footer.rights': 'Todos los derechos reservados.',
+    'footer.product': 'Producto',
+    'footer.legal': 'Legal',
+    'footer.terms': 'Términos de uso',
+    'footer.privacy': 'Privacidad',
+    'footer.contact': 'Contacto',
 
     'v4.hero.badge': 'Facturación e inventario',
     'v4.hero.title1': 'Factura, controla tu stock',
@@ -103,6 +108,11 @@ const I18N: Record<string, Record<string, string>> = {
     'footer.docs': 'Documents',
     'footer.avail': 'Availability',
     'footer.rights': 'All rights reserved.',
+    'footer.product': 'Product',
+    'footer.legal': 'Legal',
+    'footer.terms': 'Terms of use',
+    'footer.privacy': 'Privacy',
+    'footer.contact': 'Contact',
 
     'v4.hero.badge': 'Invoicing & inventory',
     'v4.hero.title1': 'Invoice, keep your stock',
